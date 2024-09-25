@@ -1,5 +1,5 @@
 import { Movie } from "src/domain/movie/movie.entity";
 
-export interface CreateTicket{
+export interface CreateSeat{
    movie_id:Movie
 }

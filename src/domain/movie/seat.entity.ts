@@ -22,4 +22,5 @@ export class Seat {
 
   @UpdateDateColumn({ type: 'timestamp' })
   updated_at: Date;
+  
 }

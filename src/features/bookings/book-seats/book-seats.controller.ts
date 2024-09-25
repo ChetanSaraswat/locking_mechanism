@@ -1,22 +1,23 @@
 import { Body, Controller, HttpStatus, Post, Res } from "@nestjs/common";
 import { Response } from "express";
 import { handleError } from "src/infrastructure/exception/custom-exception";
-import { CreateMovieCommand } from "./book-seats.dto";
-import { CreateMovieHandler } from "./book-seats.service";
+import { CreateBookingHandler } from "./book-seats.service";
+import { CreateBookSeatCommand } from "./book-seats.dto";
 
 @Controller('/')
-export class CreateMovieController {
+export class CreateBookingController {
   constructor(
-     private readonly createMovieHandler: CreateMovieHandler, 
+     private readonly CreateBookingHandler: CreateBookingHandler, 
   ) {}
 
-  @Post('create-movie')
+  @Post('book-seat')
   public async handle(
-    @Body() body: CreateMovieCommand,
+    @Body() body: CreateBookSeatCommand,
     @Res() res: Response,
   ) {
     try {
-      const response =await this.createMovieHandler.handle(body)
+      const response =await this.CreateBookingHandler.handle(body)
+      console.log('response: ', response);
       return res.status(HttpStatus.OK).json(response);
     } catch (error) {
       console.log('Error during creating movie', error);

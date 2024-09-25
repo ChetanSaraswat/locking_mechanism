@@ -25,4 +25,5 @@ export class Booking {
 
   @UpdateDateColumn({ type: 'timestamp' })
   updated_at: Date;
+  
 }

@@ -1,20 +1,16 @@
-import { IsEnum, IsNotEmpty, IsNumber, IsString } from "class-validator";
-import { GenreType } from "src/domain/movie/enum/genre-type.enum";
-export class CreateMovieCommand {
+import {  IsNotEmpty } from "class-validator";
+import { Movie } from "src/domain/movie/movie.entity";
+import { Seat } from "src/domain/movie/seat.entity";
+import { User } from "src/domain/user/user.entity";
+export class CreateBookSeatCommand {
     
-    @IsString()
     @IsNotEmpty()
-    name:string
+    user_id : User
 
-    @IsNumber()
     @IsNotEmpty()
-    total_seats: number;
+    movie_id : Movie;
 
-    @IsNumber()
     @IsNotEmpty()
-    price: number;
+    seat_id : Seat;
 
-    @IsString()
-    @IsEnum(GenreType)
-    genre_type: GenreType;
   }
